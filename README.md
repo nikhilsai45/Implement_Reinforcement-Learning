@@ -24,4 +24,5 @@ Finally Testing: Now we are going to test first we are going to load our model f
 
 Finally our code when we run it output will be opened in a new window as shown in the below picture.
 
-image
+![image](https://user-images.githubusercontent.com/63110030/236347644-a28751d8-0637-4d41-a9a3-e252d28e1324.png)
+
