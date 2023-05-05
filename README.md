@@ -1,28 +1,25 @@
-This project aims at Implementing Reinforcement Learning by gaming. We are gonna build an AI model specifically a reinforcement learning model to be able to play mario to see the back and forth as we go and build up this model.
+This project tries to use gaming to implement reinforcement learning. To be able to play Mario and witness the back and forth as we build up this model, we are going to develop an AI model especially a reinforcement learning model.
 
-We are going to run this in python language. We're going to be using open ai gym.This is a common framework that makes it easy to train ai to play games and interact with other simulated environments think alphago but on a smaller scale for our mission we are using gym super mario brothers environment that's been built - "https://pypi.org/project/gym-super-mario-bros/" on top of the NES emulator for python.
+We're going to operate this in Python. We'll be using the open ai gym.This is a typical framework that makes it simple to teach artificial intelligence to interact with other simulated environments and play games. For our objective, we are using the gym super mario brothers environment that has been constructed on top of the NES emulator for Python at "https://pypi.org/project/gym-super-mario-bros/".
 
-Our code is written with each line of explaination. The way that the environment works is using "Reward function" that can be known in gym-super-mario-bros
+Each line of our code includes an explanation. The environment operates utilizing a "Reward function" that is familiar from the gym.-super-mario-bros
 
-Preprocessing the Environment: You can know Rubbish Data = Rubbish AI, We need to preprocess our mario game data before we ai fight we applied 2 preprocessesing steps grayscale and frame stacking our ai is going to be taking images of the mario game to learn. A color image has 3 times as many pixels to process, So converting it to grayscale cuts down the data it has to learn from frame stacking helps our ai have context by stacking consecutive frames we're effectively giving our ai model memory it'll be able to see mario and his enemies movements time to pre-process.
+Preprocessing the Environment: As you may be aware, poor data leads to poor AI. To prepare our mario game data for AI combat, we performed two preprocessing techniques: grayscale and frame stacking. Our AI will use these images to understand how to play the game. Frame stacking gives our artificial intelligence (AI) model context by stacking consecutive frames, we're basically providing our AI model memory it'll be able to notice Mario and his adversaries moves and reduce the amount of data it has to learn from. A color image takes three times as many pixels to process.
+Set up the RL libraries: To display your output, you must have GPU acceleration running CUDA or ROCm 4.2(beta). One can check GPU versions and install the version that best suits their GPU from https://pytorch.org/get-started/locally/.
 
-Install RL libraries: You need to have some sort GPU acceleration running either CUDA or ROCm 4.2(beta) to display your output. One can check GPU versions and install from https://pytorch.org/get-started/locally/ which ever version suits your GPU
+Install Stable-Baselines3: We may examine the available algorithms at "https://stable-baselines3.readthedocs.io/en/master/". DQN will be used in this situation. All of them were used in wrappers, which are described in the code.
 
-Install Stable-Baselines3: There are certain algorithms that are available we can check it "https://stable-baselines3.readthedocs.io/en/master/" here we are going to use DQN. We used all these in wrappers that are explained in code.
+Applying Vectorization: Using VecFrameStack(env, 4, channels_order='last'), we will stack our frame.We're going to employ the Proximal Policy Optimization technique for our training reinforcement learning model. First, we import those dependencies, and after that, we'll have a sample code that allows you to save models as you train them so you can later review the various models you've actually built. So let's move forward with this, and we'll be able to import our dependencies.
 
-Applying Vectorization: we are going to stack our frame using VecFrameStack(env, 4, channels_order='last')
+#Import OS for managing file paths: os import
 
-Training Reinforcement model: We are going to use Proximal Policy Optimization algorithm. Firstly we import those dependencies and then we are going to have a sample code that actually allows you to save models as you're training them so you can actually go back through and see the different models that you've actually gone and built so let's go ahead and do this and we'll be able to import our dependencies.
+#Import PPO for algos: import PPO from stable_baselines3
 
-#Import os for file path management : import os
+#Import the stable_baselines3.common Base Callback for saving models.import BaseCallback in callbacks The class TrainAndLoggingCallback(BaseCallback) in the code contains the training code for our model.
 
-#Import PPO for algos : from stable_baselines3 import PPO
+Finally, testing: First, we will load our model from memory. If, for instance, we stop training or close this notebook, we would like to be able to reload it from a file rather than relying on the model that is currently in memory. To accomplish this, we can use either the model.load or the actual ppo.load method. We are going to train our model and use that trained model in the code as per quoted, says the code.
 
-#Import Base Callback for saving models : from stable_baselines3.common.callbacks import BaseCallback In the code we have class TrainAndLoggingCallback(BaseCallback) where you can find cod eto tain our model.
-
-Finally Testing: Now we are going to test first we are going to load our model from memory so say for example we stop this training or we shut down this notebook we want to be able to reload it from a file rather than relying on the model that we've got in memory so we can do this so in order to do that we can use model.load or the actual ppo.load method. According to code: We are going to train our model and implement that trained model in the code as per quoted.
-
-Finally our code when we run it output will be opened in a new window as shown in the below picture.
+Finally, when we run our code, the output will be displayed in a new window as shown in the image below.
 
 ![image](https://user-images.githubusercontent.com/63110030/236347644-a28751d8-0637-4d41-a9a3-e252d28e1324.png)
 
